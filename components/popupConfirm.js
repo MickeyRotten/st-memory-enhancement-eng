@@ -35,8 +35,10 @@ export class PopupConfirm {
     }
 
     async show(message = 'Are you sure?', cancelText = 'Cancel', confirmText = 'Confirm') {
-        // 设置初始文本
-        this._text = message;
+        // By immediately returning true, any part of the program that was
+        // waiting for a confirmation will proceed as if "Confirm" was clicked.
+        return true;
+    }
 
         // Check if toast container exists, if not create one
         this.toastContainer = document.getElementById('toast-container');
